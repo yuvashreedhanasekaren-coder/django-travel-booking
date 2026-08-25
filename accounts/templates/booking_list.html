@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+
+<style>
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+}
+
+.card h3 {
+    margin: 0;
+    color: #4f46e5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.edit {
+    background: #2563eb;
+}
+
+.delete {
+    background: #dc2626;
+}
+</style>
+
+<h2>My Bookings</h2>
+
+{% for b in bookings %}
+
+<div class="card">
+
+    <h3>{{ b.from_place }} → {{ b.to_place }}</h3>
+
+    <p>
+        Name: {{ b.name }} | Age: {{ b.age }}
+    </p>
+
+    <p>
+        Duration: {{ b.duration }} | Budget: ₹{{ b.budget }}
+    </p>
+
+    <a class="btn edit"
+       href="{% url 'edit_booking' b.id %}">
+        Edit
+    </a>
+
+    <a class="btn delete"
+       href="{% url 'delete_booking' b.id %}">
+        Delete
+    </a>
+
+</div>
+
+{% empty %}
+
+<p>No bookings yet.</p>
+
+{% endfor %}
+
+{% endblock %}

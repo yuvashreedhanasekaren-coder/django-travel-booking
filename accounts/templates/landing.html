@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(120deg, #11998e, #38ef7d);
+            font-family: Arial;
+        }
+
+        .card {
+            background: white;
+            width: 420px;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(0,0,0,.3);
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: block;
+            margin: 15px 0;
+            padding: 14px;
+            background: #11998e;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        a.register {
+            background: #38ef7d;
+            color: #0f5132;
+        }
+
+        a:hover {
+            opacity: .9;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>Travel Booking 🌍</h1>
+
+    <p>Plan your journey with ease</p>
+
+    <a href="{% url 'login' %}">Login</a>
+
+    <a class="register" href="{% url 'register' %}">
+        Register
+    </a>
+
+</div>
+
+</body>
+
+</html>
